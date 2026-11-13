@@ -1,0 +1,17 @@
+name: alumni-linkedin-searcher
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: alumni-searcher-postgres
+    environment:
+      POSTGRES_DB: alumni_db
+      POSTGRES_USER: alumni
+      POSTGRES_PASSWORD: alumni
+    ports:
+      - "5433:5432"
+    volumes:
+      - alumni_searcher_pgdata:/var/lib/postgresql/data
+
+volumes:
+  alumni_searcher_pgdata:

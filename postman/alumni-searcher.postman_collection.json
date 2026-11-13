@@ -1,0 +1,54 @@
+{
+  "info": {
+    "name": "Alumni LinkedIn Profile Searcher",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8090" }
+  ],
+  "item": [
+    {
+      "name": "Search alumni",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/alumni/search",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"university\": \"University of XYZ\",\n  \"designation\": \"Software Engineer\",\n  \"passoutYear\": \"2020\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Search alumni without year",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/alumni/search",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"university\": \"University of XYZ\",\n  \"designation\": \"Data Scientist\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Search alumni - validation error",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": "{{baseUrl}}/api/alumni/search",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"university\": \"\",\n  \"passoutYear\": 1800\n}"
+        }
+      }
+    },
+    {
+      "name": "Get saved alumni",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/alumni/all"
+      }
+    }
+  ]
+}
