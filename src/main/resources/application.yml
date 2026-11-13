@@ -13,7 +13,7 @@ spring:
       ddl-auto: update
 
 server:
-  port: ${SERVER_PORT:8090}
+  port: ${SERVER_PORT:${PORT:8090}}
 
 phantombuster:
   base-url: https://api.phantombuster.com/api/v2
